@@ -102,7 +102,7 @@ def heuristic_algo(input_list, ranked_input, maximum_wis, y_dictionary):
 def create_or_overwrite_excel(sheetname, data):
     # Create a new workbook or load an existing one
     try:
-        wb = load_workbook('changed_data.xlsx')
+        wb = load_workbook('Data/changed_data.xlsx')
     except FileNotFoundError:
         wb = Workbook()
 
@@ -124,7 +124,7 @@ def create_or_overwrite_excel(sheetname, data):
         sheet[f"B{i}"] = y
 
     # Save the workbook
-    wb.save('changed_data.xlsx')
+    wb.save('Data/changed_data.xlsx')
 
 def execute(input_list, sheet_name):
     y_dictionary =  {x: y for x, y, _ in input_list}
@@ -184,7 +184,7 @@ def find_lowest_partial_order(input_list):
 
 
 def read_xlsx_file(sheet_name, num_of_points):
-    df = pd.read_excel('data.xlsx', sheet_name=sheet_name)
+    df = pd.read_excel('Data/data.xlsx', sheet_name=sheet_name)
     points =  [(df['Column 1'][x], df['Column 2'][x], 1) for x in range(num_of_points)]
 
     x_values = [point[0] for point in points]
@@ -550,8 +550,8 @@ def reduction_to_third_dimension(points):
 
 
 if __name__ == '__main__':
-    # input_list = [(4, 4, 1), (2, 3, 1), (5, 6, 1), (1, 1, 1), (7, 8, 1), (8, 9, 1), (10, 10, 1), (3, 2, 1), (6, 7, 1)]
-    # input_list = [(4, 4, 1), (2, 3, 1), (5, 6, 1), (1, 1, 1), (7, 8, 1), (8, 9, 1), (10, 10, 1), (3, 2, 1), (6, 7, 1),
+    # input_list_example1 = [(4, 4, 1), (2, 3, 1), (5, 6, 1), (1, 1, 1), (7, 8, 1), (8, 9, 1), (10, 10, 1), (3, 2, 1), (6, 7, 1)]
+    # input_list_example2 = [(4, 4, 1), (2, 3, 1), (5, 6, 1), (1, 1, 1), (7, 8, 1), (8, 9, 1), (10, 10, 1), (3, 2, 1), (6, 7, 1),
     #               (9, 5, 1), (0, 0, 1), (5, 3, 1), (2, 6, 1), (4, 9, 1), (6, 3, 1), (1, 7, 1)]
 
     for i in range(1, 11):
